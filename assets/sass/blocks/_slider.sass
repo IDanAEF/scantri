@@ -1,0 +1,67 @@
+.slider
+    padding: 150px 0px
+    &__page
+        opacity: 0
+        visibility: hidden
+        height: 0
+        transition: 0.5s all
+        &.active
+            height: auto
+            visibility: visible
+            opacity: 1
+    &__title
+        text-align: center
+    &__arrows
+        display: flex
+        justify-content: center
+        margin-top: 61px
+        img
+            opacity: 0.5
+            width: 70px
+            transform: scale(0.9)
+            cursor: pointer
+            transition: 0.3s all
+            &:hover 
+                opacity: 1
+                transform: scale(1)
+            &.left
+                transform: scale(0.9) rotate(180deg)
+                margin-right: 40px
+                &:hover 
+                    transform: scale(1) rotate(180deg)
+    &__tabs
+        margin: 48px 0px 70px
+        display: flex
+        justify-content: center
+        span 
+            margin-bottom: 10px
+            cursor: pointer
+            color: #CDCECE
+            transition: 0.4s all
+            &.active
+                color: #16B2D8
+            &:not(:last-child)
+                margin-right: 90px
+    &__line
+        width: fit-content
+        display: flex
+        transition: 0.5s all
+    &__item
+        background-color: #F8F9FA
+        border: 2px solid rgba(0, 0, 0, 0.2)
+        box-shadow: 23px 57px 24px rgba(0, 0, 0, 0.01), 13px 32px 21px rgba(0, 0, 0, 0.05), 6px 14px 15px rgba(0, 0, 0, 0.09), 1px 4px 8px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1)
+        border-radius: 16px
+        padding: 55px 35px 40px
+        width: 411px
+        min-height: 543px
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        cursor: pointer
+        margin-right: 48px
+        &-image 
+            max-width: 100%
+        &-title 
+            padding-bottom: 10px
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2)
+            margin: 56px 0px 32px

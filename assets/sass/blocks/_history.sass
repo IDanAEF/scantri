@@ -1,0 +1,41 @@
+.history
+    padding: 150px 0px 117px
+    text-align: center
+    &__undertitle
+        margin: 40px auto 100px
+        width: 900px
+    &__items 
+        display: flex
+        justify-content: space-between
+    &__item 
+        width: 382px
+        display: flex
+        flex-direction: column
+        align-items: center
+        &:not(:last-child)
+            .history__item-number
+                &::after
+                    content: ''
+                    position: absolute
+                    height: 1px
+                    background: linear-gradient(to right, rgba(0, 0, 0, 0.62) 50%, #fff 50%)
+                    background-size: 43px
+                    width: 535px
+                    top: 50%
+                    transform: translateY(-50%)
+                    left: calc(0px + 100%)
+                    z-index: 1
+        &-number
+            width: 82px
+            height: 82px
+            background-color: #16B2D8
+            border-radius: 12px
+            font-size: 48px
+            line-height: 56px
+            display: flex
+            align-items: center
+            justify-content: center
+            position: relative
+            z-index: 2
+        &-title 
+            margin: 32px 0px 24px

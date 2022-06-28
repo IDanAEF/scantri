@@ -1,0 +1,52 @@
+.about
+    min-height: 730px
+    position: relative
+    padding: 87px 0px 44px
+    .container
+        position: relative
+    &__bg
+        position: absolute
+        height: 100%
+        top: 50%
+        transform: translateY(-50%)
+        left: 0
+        z-index: -1
+    &__text
+        width: 650px
+        position: absolute
+        right: 36px
+    &__tab 
+        position: absolute
+        width: 370px
+        padding: 20px 16px
+        background-color: #F8F9FA
+        border: 1px solid rgba(32, 32, 32, 0.2)
+        box-shadow: 59px 98px 46px rgba(0, 0, 0, 0.01), 33px 55px 39px rgba(0, 0, 0, 0.05), 15px 25px 29px rgba(0, 0, 0, 0.09), 4px 6px 16px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1)
+        border-radius: 16px
+        right: calc(134px + 100%)
+        top: 60px
+    &__undertitle
+        margin: 24px 0px 72px
+        font-size: 30px
+        line-height: 35px
+    &__items 
+        width: 76.28%
+    &__item 
+        display: flex
+        &-image 
+            min-width: 100px
+            min-height: 100px
+            background-color: #F8F9FA
+            border: 1px solid rgba(32, 32, 32, 0.2)
+            box-shadow: 13px 40px 17px rgba(0, 0, 0, 0.01), 7px 22px 14px rgba(0, 0, 0, 0.05), 3px 10px 10px rgba(0, 0, 0, 0.09), 1px 2px 6px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1)
+            border-radius: 12px
+            margin-right: 40px
+            display: flex
+            align-items: center
+            justify-content: center
+            img 
+                max-width: 82%
+        &-undertitle
+            margin-top: 24px
+        &:not(:last-child)
+            margin-bottom: 40px
