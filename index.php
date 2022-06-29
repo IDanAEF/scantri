@@ -125,10 +125,14 @@
                                                 <article data-name="<?=$val['name']?>" data-type="<?=$valType?>" class="slider__item">
                                                     <div class="slider__item-main">
                                                         <img src="<?=$val['image']?>" alt="<?=$val['name']?>" class="slider__item-image">
-                                                        <div class="slider__item-title text text_fz24 text_fw500"><?=$val['name']?></div>
-                                                        <div class="slider__item-info text text_fz20"><?=$val['info']?></div>
+                                                        <div class="cont_padd">
+                                                            <div class="slider__item-title text text_fz24 text_fw500"><?=$val['name']?></div>
+                                                            <div class="slider__item-info text text_fz20"><?=$val['info']?></div>
+                                                        </div>
                                                     </div>
-                                                    <button class="slider__item-button button text text_fz20">Бронировать</button>
+                                                    <div class="cont_padd">
+                                                        <button class="slider__item-button button text text_fz20">Бронировать</button>
+                                                    </div>
                                                 </article>
                                             <?php 
                                         }
