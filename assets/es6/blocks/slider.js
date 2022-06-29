@@ -3,6 +3,8 @@ function slider() {
         const sliderPages = document.querySelectorAll('.slider__page'),
               sliderTabs = document.querySelectorAll('.slider__tabs span');
 
+        let isMobile = window.screen.width <= 576;
+
         const setPage = (i = 0) => {
             sliderPages.forEach(item => item.classList.remove('active'));
             sliderTabs.forEach(item => item.classList.remove('active'));
@@ -19,8 +21,16 @@ function slider() {
             });
         });
 
+        const itemRage = () => {
+            if (isMobile) {
+                return 1;
+            } else {
+                return 2;
+            }
+        }
+
         const itemWidth = (item) => {
-            return 2 * (item.clientWidth + +window.getComputedStyle(item).marginRight.replace(/[a-zа-яё]/gi, ''));
+            return itemRage() * (item.clientWidth + +window.getComputedStyle(item).marginRight.replace(/[a-zа-яё]/gi, ''));
         }
 
         sliderPages.forEach(page => {
@@ -32,8 +42,10 @@ function slider() {
     
             let curr = 0,
                 steps = Math.floor((sliderItems.length - 1) / 2);
+            
+                isMobile ? steps = sliderItems.length - 1 : '';
 
-            if (sliderItems.length >= 4) {
+            if (sliderItems.length >= 4 || (isMobile && sliderItems.length >= 1)) {
                 sliderRight.addEventListener('click', () => {
                     curr == steps ? curr = 0 : curr++;
                     sliderLine.style.transform = `translateX(-${curr * itemWidth(sliderItems[0])}px)`;
