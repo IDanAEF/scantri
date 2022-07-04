@@ -2,6 +2,43 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./assets/es6/blocks/form.js":
+/*!***********************************!*\
+  !*** ./assets/es6/blocks/form.js ***!
+  \***********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+function form() {
+  try {
+    const forms = document.querySelectorAll('form');
+
+    async function postData(url, data) {
+      let res = await fetch(url, {
+        method: "POST",
+        body: data
+      });
+      return await res.text();
+    }
+
+    forms.forEach(item => {
+      item.addEventListener('submit', e => {
+        e.preventDefault();
+        const formData = new FormData(item);
+        postData('mail.php', formData).then(() => {
+          window.location.href = '/';
+        });
+      });
+    });
+  } catch (e) {
+    console.log(e.stack);
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (form);
+
+/***/ }),
+
 /***/ "./assets/es6/blocks/mask.js":
 /*!***********************************!*\
   !*** ./assets/es6/blocks/mask.js ***!
@@ -71,13 +108,15 @@ function modal() {
     const modalPlace = document.querySelector('.modal'),
           modalItems = document.querySelectorAll('.modal__item'),
           sliderCont = document.querySelector('.slider'),
-          btnCall = document.querySelectorAll('button[data-modal]');
+          btnCall = document.querySelectorAll('button[data-modal]'),
+          modalInputs = document.querySelectorAll('.modal__item input');
     const carNameInp = document.querySelector('#carName'),
           carTypeInp = document.querySelector('#carType');
 
     const closeModal = () => {
       modalItems.forEach(item => item.classList.remove('active'));
       modalPlace.classList.remove('active');
+      modalInputs.forEach(item => item.value = '');
       document.querySelector('body').style.overflow = '';
     };
 
@@ -97,10 +136,12 @@ function modal() {
       });
     });
     sliderCont.addEventListener('click', e => {
-      if (e.path.some(item => item.nodeName == 'ARTICLE')) {
-        let elem = e.path.filter(item => item.nodeName == 'ARTICLE')[0];
-        carNameInp.value = elem.getAttribute('data-name');
-        carTypeInp.value = elem.getAttribute('data-type');
+      let curPath = e.path || e.composedPath && e.composedPath();
+      let elem = curPath.filter(item => item.nodeName == 'ARTICLE');
+
+      if (elem) {
+        carNameInp.value = elem[0].getAttribute('data-name');
+        carTypeInp.value = elem[0].getAttribute('data-type');
         openModal('order');
       }
     });
@@ -252,6 +293,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./blocks/slider */ "./assets/es6/blocks/slider.js");
 /* harmony import */ var _blocks_mask__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./blocks/mask */ "./assets/es6/blocks/mask.js");
 /* harmony import */ var _blocks_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./blocks/modal */ "./assets/es6/blocks/modal.js");
+/* harmony import */ var _blocks_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./blocks/form */ "./assets/es6/blocks/form.js");
+
 
 
 
@@ -261,6 +304,7 @@ window.addEventListener('DOMContentLoaded', () => {
   (0,_blocks_mask__WEBPACK_IMPORTED_MODULE_1__["default"])('input[type="tel"]');
   (0,_blocks_slider__WEBPACK_IMPORTED_MODULE_0__["default"])();
   (0,_blocks_modal__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  (0,_blocks_form__WEBPACK_IMPORTED_MODULE_3__["default"])();
 });
 }();
 /******/ })()

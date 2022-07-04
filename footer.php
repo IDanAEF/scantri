@@ -20,9 +20,10 @@
             <img class="modal__close" src="/assets/images/close.svg" alt="close">
             <div class="modal__title title title_fz42 text_ffDays">Оставьте ваши контактные данные</div>
             <div class="modal__undertitle text text_fz20">и наш специалист свяжется с вами в течении 15 минут</div>
-            <form action="/mail/" class="text text_fz18">
+            <form action="" class="text text_fz18">
                 <input type="text" name="name" placeholder="Ваше имя*" require>
                 <input type="tel" name="phone" placeholder="Ваш телефон*" require>
+                <input type="text" name="form_type" value="call" hidden>
                 <button class="button button_promo text text_fz24">Отправить</button>
             </form>
             <div class="modal__pos text text_fz16">Нажимая кнопку, вы соглашаетесь с нашей политикой в отношении обработки персональных данных.</div>
@@ -33,10 +34,11 @@
         <div class="modal__left">
             <div class="modal__title title title_fz42 text_ffDays">Оставьте ваши контактные данные</div>
             <div class="modal__undertitle text text_fz20">и наш специалист свяжется с вами в течении 30 минут</div>
-            <form action="/mail/" class="text text_fz18">
+            <form action="" class="text text_fz18">
                 <input type="text" name="name" placeholder="Ваше имя*" required>
                 <input type="email" name="email" placeholder="Ваше email*" required>
                 <input type="tel" name="phone" placeholder="Ваш телефон*" required>
+                <input type="text" name="form_type" value="appl" hidden>
                 <button class="button button_promo text text_fz24">Отправить</button>
             </form>
             <div class="modal__pos text text_fz16">Нажимая кнопку, вы соглашаетесь с нашей политикой в отношении обработки персональных данных.</div>
@@ -50,11 +52,12 @@
         <div class="modal__left">
             <div class="modal__title title title_fz42 text_ffDays">Оставьте ваши контактные данные</div>
             <div class="modal__undertitle text text_fz20">и наш специалист свяжется с вами в течении 30 минут</div>
-            <form action="/mail/" class="text text_fz18">
+            <form action="" class="text text_fz18">
                 <input type="text" name="name" placeholder="Ваше имя*" required>
-                <input id="carName" type="text" placeholder="Транспорт:" readonly>
+                <input id="carName" name="car" type="text" placeholder="Транспорт:" readonly>
                 <input type="tel" name="phone" placeholder="Ваш телефон*" required>
                 <input id="carType" type="text" name="type" hidden>
+                <input type="text" name="form_type" value="order" hidden>
                 <button class="button button_promo text text_fz24">Отправить</button>
             </form>
             <div class="modal__pos text text_fz16">Нажимая кнопку, вы соглашаетесь с нашей политикой в отношении обработки персональных данных.</div>

@@ -3,7 +3,8 @@ function modal() {
         const modalPlace = document.querySelector('.modal'),
               modalItems = document.querySelectorAll('.modal__item'),
               sliderCont = document.querySelector('.slider'),
-              btnCall = document.querySelectorAll('button[data-modal]');
+              btnCall = document.querySelectorAll('button[data-modal]'),
+              modalInputs = document.querySelectorAll('.modal__item input');
 
         const carNameInp = document.querySelector('#carName'),
               carTypeInp = document.querySelector('#carType');
@@ -11,6 +12,7 @@ function modal() {
         const closeModal = () => {
             modalItems.forEach(item => item.classList.remove('active'));
             modalPlace.classList.remove('active');
+            modalInputs.forEach(item => item.value = '');
             document.querySelector('body').style.overflow = '';
         }
 
@@ -31,10 +33,11 @@ function modal() {
         });
 
         sliderCont.addEventListener('click', (e) => {
-            if (e.path.some(item => item.nodeName == 'ARTICLE')) {
-                let elem = e.path.filter(item => item.nodeName == 'ARTICLE')[0];
-                carNameInp.value = elem.getAttribute('data-name');
-                carTypeInp.value = elem.getAttribute('data-type');
+            let curPath = e.path || (e.composedPath && e.composedPath());
+            let elem = curPath.filter(item => item.nodeName == 'ARTICLE');
+            if (elem) {
+                carNameInp.value = elem[0].getAttribute('data-name');
+                carTypeInp.value = elem[0].getAttribute('data-type');
                 openModal('order');
             }
         });
